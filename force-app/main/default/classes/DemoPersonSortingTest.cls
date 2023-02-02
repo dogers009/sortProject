@@ -28,34 +28,16 @@ private class DemoPersonSortingTest {
        
         //Person sort option 1
         
-        SortUtil.sortRecords(persons , SortUtil.SortOrder.ASCENDING, 'age', SortUtil.Type.TYPE_INTEGER);
-        system.assertEquals(persons[0], p1,'age ASCENDING');
+         string fields= 'age,gender,firstName,lastName';
+         string order= 'ASCENDING,DESCENDING,ASCENDING,DESCENDING';
+         SortUtil.sortRecords(persons ,order, fields);
+         system.assertEquals(persons[0], p3,'TEST SORT OPTION 1');
 
-        SortUtil.sortRecords(persons , SortUtil.SortOrder.ASCENDING, 'gender', SortUtil.Type.TYPE_STRING);
-        system.assertEquals(persons[0], p1,'WOMEN FIRST');
-       	system.assertEquals(persons[1], p2,'WOMEN FIRST');
-       
-        SortUtil.sortRecords(persons , SortUtil.SortOrder.ASCENDING, 'firstName', SortUtil.Type.TYPE_STRING);
-        system.assertEquals(persons[0], p1,'fisrName ASCENDING');
-
-        SortUtil.sortRecords(persons , SortUtil.SortOrder.DESCENDING, 'lastName', SortUtil.Type.TYPE_STRING);
-        system.assertEquals(persons[0], p3,'lastName DESCENDING');
-        
-       
-        //Person sort option 2
-        
-        SortUtil.sortRecords(persons , SortUtil.SortOrder.ASCENDING, 'gender', SortUtil.Type.TYPE_STRING);
-        system.assertEquals(persons[0], p1,'gender ASCENDING');
-        
-        SortUtil.sortRecords(persons , SortUtil.SortOrder.DESCENDING, 'firstName', SortUtil.Type.TYPE_STRING);
-        system.assertEquals(persons[0], p3,'fisrName DESCENDING');
-
-        SortUtil.sortRecords(persons , SortUtil.SortOrder.ASCENDING, 'lastName', SortUtil.Type.TYPE_STRING);
-        system.assertEquals(persons[0], p1,'lastName ASCENDING');
-       
-        SortUtil.sortRecords(persons , SortUtil.SortOrder.ASCENDING, 'age', SortUtil.Type.TYPE_INTEGER);
-        system.assertEquals(persons[0], p1,'age ASCENDING');
-
+         //Person sort option 2
+         fields= 'gender,firstName,lastName,age';
+         order= 'ASCENDING,DESCENDING,ASCENDING,ASCENDING';
+         SortUtil.sortRecords(persons ,order, fields);
+         system.assertEquals(persons[0], p1,'TEST SORT OPTION 2');
    }
    
 }
